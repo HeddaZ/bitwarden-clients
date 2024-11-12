@@ -181,7 +181,7 @@ class AutofillOverlayList extends AutofillOverlayPageElement {
       this.ciphers.length,
     );
     for (let cipherIndex = this.currentCipherIndex; cipherIndex < lastIndex; cipherIndex++) {
-      this.ciphersList.appendChild(this.buildOverlayActionsListItem(this.ciphers[cipherIndex]));
+      this.ciphersList.appendChild(this.buildOverlayActionsListItem(this.ciphers[cipherIndex], cipherIndex)); // [HEDDA] Pass index
       this.currentCipherIndex++;
     }
 
@@ -223,9 +223,10 @@ class AutofillOverlayList extends AutofillOverlayPageElement {
    *
    * @param cipher - The cipher to build the list item for.
    */
-  private buildOverlayActionsListItem(cipher: OverlayCipherData) {
+  private buildOverlayActionsListItem(cipher: OverlayCipherData, index: number) { // [HEDDA] Pass index
     const fillCipherElement = this.buildFillCipherElement(cipher);
     const viewCipherElement = this.buildViewCipherElement(cipher);
+    viewCipherElement.setAttribute("title", "#" + index); // [HEDDA] Show sequence
 
     const cipherContainerElement = globalThis.document.createElement("div");
     cipherContainerElement.classList.add("cipher-container");
@@ -433,11 +434,13 @@ class AutofillOverlayList extends AutofillOverlayPageElement {
 
     const cipherDetailsElement = globalThis.document.createElement("span");
     cipherDetailsElement.classList.add("cipher-details");
-    if (cipherNameElement) {
-      cipherDetailsElement.appendChild(cipherNameElement);
-    }
+
+    // [HEDDA] Change layout
     if (cipherUserLoginElement) {
       cipherDetailsElement.appendChild(cipherUserLoginElement);
+    }
+    if (cipherNameElement) {
+      cipherDetailsElement.appendChild(cipherNameElement);
     }
 
     return cipherDetailsElement;
