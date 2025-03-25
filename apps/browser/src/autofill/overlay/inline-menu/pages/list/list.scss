@@ -601,3 +601,23 @@ body * {
     }
   }
 }
+
+// [Hedda]
+.inline-menu-list-actions-item  {
+  .cipher-container {
+    padding: 0 !important;
+  }
+  .cipher-icon {
+    margin: 0 0.5rem !important;
+  }
+  .cipher-name {
+    line-height: 1.3 !important;
+    font-size: 1.3rem !important;
+    color: #355bda !important;
+  }
+  .cipher-subtitle {
+    line-height: 1.3 !important;
+    font-size: 1.2rem !important;
+    color: #7e7e7e !important;
+  }
+}

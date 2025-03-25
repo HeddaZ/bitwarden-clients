@@ -11,7 +11,7 @@ class AutofillOverlayListIframe extends AutofillOverlayIframeElement {
       {
         height: "0px",
         minWidth: "250px",
-        maxHeight: "180px",
+        maxHeight: "250px", // [Hedda]
         boxShadow: "rgba(0, 0, 0, 0.1) 2px 4px 6px 0px",
         borderRadius: "4px",
         borderWidth: "1px",
